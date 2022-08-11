@@ -1,14 +1,13 @@
-package com.example.marvelapp.ui.base
+package daniel.lop.io.marvelappstarter.iu.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>: Fragment() {
+abstract class BaseFragment<VB: ViewBinding, VM: ViewBinding>: Fragment() {
 
     private var _binding: VB? = null
     protected val binding get() = _binding!!
@@ -19,16 +18,15 @@ abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = getViewBinding(layoutInflater, container)
+
+        _binding = getViewBinding(inflater, container)
         return binding.root
     }
 
-    abstract fun getViewBinding(layoutInflater: LayoutInflater, container: ViewGroup?): VB
+    abstract fun getViewBinding(layoutInflater: LayoutInflater, container: ViewGroup?): VB?
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding
+        _binding = null
     }
-
-
 }
