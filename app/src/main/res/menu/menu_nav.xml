@@ -2,17 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/listCaracterFragment"
         android:icon="@drawable/ic_home"
         android:title="Home" />
 
     <item
-        android:id="@+id/searchCaracterFragment"
         android:icon="@drawable/ic_search"
-        android:title="Pesquisa" />
+        android:title="Search" />
 
     <item
-        android:id="@+id/favoriteCaracterFragment"
         android:icon="@drawable/ic_favorite_border"
         android:title="Favoritos" />
 

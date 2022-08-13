@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listCaracterFragment">
-
+    app:startDestination="@id/detailsCaracterFragment">
     <fragment
-        android:id="@+id/listCaracterFragment"
-        android:name="daniel.lop.io.marvelappstarter.iu.base.list.ListCaracterFragment"
-        android:label="ListCaracterFragment" >
-        <action
-            android:id="@+id/action_listCaracterFragment_to_detailsCaracterFragment"
-            app:destination="@id/detailsCaracterFragment" />
-    </fragment>
+        android:id="@+id/detailsCaracterFragment"
+        android:name="daniel.lop.io.marvelappstarter.details.DetailsCaracterFragment"
+        android:label="DetailsCaracterFragment" />
     <fragment
         android:id="@+id/favoriteCaracterFragment"
         android:name="daniel.lop.io.marvelappstarter.iu.base.favorite.FavoriteCaracterFragment"
@@ -21,19 +17,19 @@
             app:destination="@id/detailsCaracterFragment" />
     </fragment>
     <fragment
+        android:id="@+id/listCaracterFragment"
+        android:name="daniel.lop.io.marvelappstarter.iu.base.list.ListCaracterFragment"
+        android:label="ListCaracterFragment" >
+        <action
+            android:id="@+id/action_listCaracterFragment_to_detailsCaracterFragment"
+            app:destination="@id/detailsCaracterFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/searchCaracterFragment"
         android:name="daniel.lop.io.marvelappstarter.iu.base.search.SearchCaracterFragment"
         android:label="SearchCaracterFragment" >
         <action
             android:id="@+id/action_searchCaracterFragment_to_detailsCaracterFragment"
             app:destination="@id/detailsCaracterFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailsCaracterFragment"
-        android:name="daniel.lop.io.marvelappstarter.details.DetailsCaracterFragment"
-        android:label="DetailsCaracterFragment" >
-        <argument
-            android:name="characterid"
-            app:argType="daniel.lop.io.marvelappstarter.model.CaracterModel" />
     </fragment>
 </navigation>

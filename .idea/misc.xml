@@ -12,16 +12,14 @@
         <entry key="..\:/MeusCursos/MeusCursosUdemy/Android/Marvel/starter/MarvelAppStarter/app/src/main/res/layout/fragment_search_character.xml" value="0.36666666666666664" />
         <entry key="..\:/MeusCursos/MeusCursosUdemy/Android/Marvel/starter/MarvelAppStarter/app/src/main/res/layout/item_character.xml" value="0.36666666666666664" />
         <entry key="..\:/MeusCursos/MeusCursosUdemy/Android/Marvel/starter/MarvelAppStarter/app/src/main/res/menu/menu_nav.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/Marvel_App/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/Marvel_App/app/src/main/res/layout/fragment_favorite_character.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/Marvel_App/app/src/main/res/layout/fragment_list_character.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/Marvel_App/app/src/main/res/layout/fragment_search_character.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/Marvel_App/app/src/main/res/menu/menu_details.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/Marvel_App/app/src/main/res/menu/menu_nav.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/cliente/AndroidStudioProjects/marvel-app-stater-main/app/src/main/res/layout/activity_main.xml" value="0.21" />
+        <entry key="..\:/Users/cliente/AndroidStudioProjects/marvel-app-stater-main/app/src/main/res/layout/fragment_details_character.xml" value="0.22" />
+        <entry key="..\:/Users/cliente/AndroidStudioProjects/marvel-app-stater-main/app/src/main/res/menu/menu_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/cliente/AndroidStudioProjects/marvel-app-stater-main/app/src/main/res/menu/menu_nav.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
