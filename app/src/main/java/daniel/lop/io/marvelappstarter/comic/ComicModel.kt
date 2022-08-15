@@ -1,7 +1,7 @@
 package daniel.lop.io.marvelappstarter.comic
 
 import com.google.gson.annotations.SerializedName
-import daniel.lop.io.marvelappstarter.caracter.ThumbnailModel
+import daniel.lop.io.marvelappstarter.character.ThumbnailModel
 import java.io.Serializable
 
 data class ComicModel(

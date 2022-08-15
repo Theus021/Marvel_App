@@ -3,9 +3,11 @@ package daniel.lop.io.marvelappstarter.iu.base.search
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import daniel.lop.io.marvelappstarter.databinding.FragmentSearchCharacterBinding
 import daniel.lop.io.marvelappstarter.iu.base.BaseFragment
 
+@AndroidEntryPoint
 class SearchCaracterFragment: BaseFragment<FragmentSearchCharacterBinding, SearchCaracterViewModel>() {
     override val viewModel: SearchCaracterViewModel by viewModels()
 

@@ -3,9 +3,8 @@ package daniel.lop.io.marvelappstarter.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class CaracterModelResponse(
+data class CharacterModelData(
 
-    @SerializedName("data")
-    val data: CaracterModelData
-
-):Serializable
+    @SerializedName("results")
+    val results: List<CharacterModel>
+): Serializable

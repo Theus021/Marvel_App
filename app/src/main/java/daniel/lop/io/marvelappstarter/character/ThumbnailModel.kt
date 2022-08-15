@@ -1,4 +1,4 @@
-package daniel.lop.io.marvelappstarter.caracter
+package daniel.lop.io.marvelappstarter.character
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,10 +1,10 @@
 package daniel.lop.io.marvelappstarter.model
 
 import com.google.gson.annotations.SerializedName
-import daniel.lop.io.marvelappstarter.caracter.ThumbnailModel
+import daniel.lop.io.marvelappstarter.character.ThumbnailModel
 import java.io.Serializable
 
-data class CaracterModel(
+data class CharacterModel(
 
     @SerializedName("id")
     val id: Int,
