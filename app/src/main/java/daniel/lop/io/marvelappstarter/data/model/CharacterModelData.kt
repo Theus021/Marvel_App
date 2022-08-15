@@ -1,4 +1,4 @@
-package daniel.lop.io.marvelappstarter.model
+package daniel.lop.io.marvelappstarter.data.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
