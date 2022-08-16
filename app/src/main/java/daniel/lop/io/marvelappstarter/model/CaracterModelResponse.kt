@@ -1,11 +1,11 @@
-package daniel.lop.io.marvelappstarter.data.model
+package daniel.lop.io.marvelappstarter.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class CharacterModelResponse(
+data class CaracterModelResponse(
 
     @SerializedName("data")
-    val data: CharacterModelData
+    val data: CaracterModelData
 
 ):Serializable
