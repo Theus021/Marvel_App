@@ -21,7 +21,7 @@ interface ServiceApi {
             value = "characterId",
             encoded = true
         )characterId: Int
-    
+
     ): Response<ComicModelResponse>
 
 }
