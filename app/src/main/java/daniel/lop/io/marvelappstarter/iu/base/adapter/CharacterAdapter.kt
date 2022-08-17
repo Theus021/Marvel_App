@@ -2,14 +2,13 @@ package daniel.lop.io.marvelappstarter.iu.base.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import daniel.lop.io.marvelappstarter.R
 import daniel.lop.io.marvelappstarter.databinding.ItemCharacterBinding
-import daniel.lop.io.marvelappstarter.model.CaracterModel
+import daniel.lop.io.marvelappstarter.model.ComicModel
 import daniel.lop.io.marvelappstarter.util.limitDescription
 
 
@@ -18,14 +17,14 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
     inner class CharacterViewHolder(val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private val differCallBack = object: DiffUtil.ItemCallback<CaracterModel>(){
+    private val differCallBack = object: DiffUtil.ItemCallback<ComicModel>(){
 
-        override fun areItemsTheSame(oldItem: CaracterModel, newItem: CaracterModel): Boolean {
+        override fun areItemsTheSame(oldItem: ComicModel, newItem: ComicModel): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: CaracterModel, newItem: CaracterModel): Boolean {
-            return  oldItem.id == newItem.id && oldItem.name == newItem.name &&
+        override fun areContentsTheSame(oldItem: ComicModel, newItem: ComicModel): Boolean {
+            return  oldItem.id == newItem.id && oldItem.title == newItem.title &&
                     oldItem.descripton == newItem.descripton &&
                     oldItem.thumbnailModel.patch == newItem.thumbnailModel.patch &&
                     oldItem.thumbnailModel.extension == newItem.thumbnailModel.extension
@@ -36,7 +35,7 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
 
     private val difer = AsyncListDiffer(this, differCallBack )
 
-    var characters: List<CaracterModel>
+    var characters: List<ComicModel>
     get()= difer.currentList
     set(value)= difer.submitList(value)
 
@@ -55,7 +54,7 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
 
         val character = characters[position]
             holder.binding.apply {
-                tvNameCharacter.text = character.name
+                tvNameCharacter.text = character.title
                 if (character.descripton == "") {
                     tvNameCharacter.text =
                     holder.itemView.context.getString(R.string.text_description_empty)
@@ -74,9 +73,9 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
         }
     }
 
-    private var onItemClickListener:((CaracterModel) -> Unit)? = null
+    private var onItemClickListener:((ComicModel) -> Unit)? = null
 
-    fun setOnClickListener(listener: (CaracterModel) -> Unit){
+    fun setOnClickListener(listener: (ComicModel) -> Unit){
             onItemClickListener = listener
     }
 
