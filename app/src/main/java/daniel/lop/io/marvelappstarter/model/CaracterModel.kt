@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName
 import daniel.lop.io.marvelappstarter.character.ThumbnailModel
 import java.io.Serializable
 
-data class ComicModel(
+data class CaracterModel(
 
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
     val title: String,
     @SerializedName("descripton")
-    val descripton: String,
+    val description: String,
     @SerializedName("thumbnail")
     val thumbnailModel: ThumbnailModel
 ): Serializable

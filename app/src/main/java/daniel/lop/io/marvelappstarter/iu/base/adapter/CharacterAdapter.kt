@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import daniel.lop.io.marvelappstarter.R
 import daniel.lop.io.marvelappstarter.databinding.ItemCharacterBinding
-import daniel.lop.io.marvelappstarter.model.ComicModel
+import daniel.lop.io.marvelappstarter.model.CaracterModel
 import daniel.lop.io.marvelappstarter.util.limitDescription
 
 
@@ -17,15 +17,15 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
     inner class CharacterViewHolder(val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private val differCallBack = object: DiffUtil.ItemCallback<ComicModel>(){
+    private val differCallBack = object: DiffUtil.ItemCallback<CaracterModel>(){
 
-        override fun areItemsTheSame(oldItem: ComicModel, newItem: ComicModel): Boolean {
+        override fun areItemsTheSame(oldItem: CaracterModel, newItem: CaracterModel): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: ComicModel, newItem: ComicModel): Boolean {
+        override fun areContentsTheSame(oldItem: CaracterModel, newItem: CaracterModel): Boolean {
             return  oldItem.id == newItem.id && oldItem.title == newItem.title &&
-                    oldItem.descripton == newItem.descripton &&
+                    oldItem.description == newItem.description &&
                     oldItem.thumbnailModel.patch == newItem.thumbnailModel.patch &&
                     oldItem.thumbnailModel.extension == newItem.thumbnailModel.extension
 
@@ -35,7 +35,7 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
 
     private val difer = AsyncListDiffer(this, differCallBack )
 
-    var characters: List<ComicModel>
+    var characters: List<CaracterModel>
     get()= difer.currentList
     set(value)= difer.submitList(value)
 
@@ -55,11 +55,11 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
         val character = characters[position]
             holder.binding.apply {
                 tvNameCharacter.text = character.title
-                if (character.descripton == "") {
+                if (character.description == "") {
                     tvNameCharacter.text =
                     holder.itemView.context.getString(R.string.text_description_empty)
                 }else{
-                    tvDescriptionCharacter.text = character.descripton.limitDescription(100)
+                    tvDescriptionCharacter.text = character.description.limitDescription(100)
                 }
                 Glide.with(holder.itemView.context)
                     .load(character.thumbnailModel.patch + "." + character.thumbnailModel.extension)
@@ -73,9 +73,9 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
         }
     }
 
-    private var onItemClickListener:((ComicModel) -> Unit)? = null
+    private var onItemClickListener:((CaracterModel) -> Unit)? = null
 
-    fun setOnClickListener(listener: (ComicModel) -> Unit){
+    fun setOnClickListener(listener: (CaracterModel) -> Unit){
             onItemClickListener = listener
     }
 

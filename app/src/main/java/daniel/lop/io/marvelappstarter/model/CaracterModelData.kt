@@ -6,5 +6,5 @@ import java.io.Serializable
 data class CaracterModelData(
 
     @SerializedName("results")
-    val results: List<ComicModel>
+    val results: List<CaracterModel>
 ): Serializable

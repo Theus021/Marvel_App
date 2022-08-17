@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import daniel.lop.io.marvelappstarter.comic.ComicModel
 import daniel.lop.io.marvelappstarter.databinding.ItemComicBinding
-import daniel.lop.io.marvelappstarter.model.ComicModel
 
 
 class ComicAdapter: RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
@@ -23,7 +23,7 @@ class ComicAdapter: RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
 
         override fun areContentsTheSame(oldItem: ComicModel, newItem: ComicModel): Boolean {
             return  oldItem.id == newItem.id && oldItem.title == newItem.title &&
-                    oldItem.descripton == newItem.descripton &&
+                    oldItem.description == newItem.description &&
                     oldItem.thumbnailModel.patch == newItem.thumbnailModel.patch &&
                     oldItem.thumbnailModel.extension == newItem.thumbnailModel.extension
         }
@@ -50,7 +50,7 @@ class ComicAdapter: RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
         val comic = comics[position]
             holder.binding.apply {
                 tvNameComic.text = comic.title
-                tvNameComic.text = comic.descripton
+                tvNameComic.text = comic.description
 
                 Glide.with(holder.itemView.context)
                     .load(comic.thumbnailModel.patch + "." + comic.thumbnailModel.extension)
