@@ -9,8 +9,8 @@ data class CaracterModel(
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
-    val title: String,
-    @SerializedName("descripton")
+    val name: String,
+    @SerializedName("description")
     val description: String,
     @SerializedName("thumbnail")
     val thumbnailModel: ThumbnailModel

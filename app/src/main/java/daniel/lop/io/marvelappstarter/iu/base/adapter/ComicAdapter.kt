@@ -50,7 +50,7 @@ class ComicAdapter: RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
         val comic = comics[position]
             holder.binding.apply {
                 tvNameComic.text = comic.title
-                tvNameComic.text = comic.description
+                tvDescriptionComic.text = comic.description
 
                 Glide.with(holder.itemView.context)
                     .load(comic.thumbnailModel.patch + "." + comic.thumbnailModel.extension)

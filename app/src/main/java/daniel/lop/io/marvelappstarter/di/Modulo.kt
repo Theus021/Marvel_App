@@ -59,10 +59,14 @@ object Modulo {
             .build()
     }
 
+    @Singleton
+    @Provides
     fun provideServiceApi(retrofit: Retrofit): ServiceApi{
         return retrofit.create(ServiceApi::class.java)
-
     }
+
+    @Singleton
+    @Provides
     fun provideToMd5Hash(encrypted: String): String {
         var pass = encrypted
         var encryptedString: String? = null

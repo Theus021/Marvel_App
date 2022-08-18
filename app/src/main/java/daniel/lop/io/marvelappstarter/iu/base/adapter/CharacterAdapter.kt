@@ -24,7 +24,7 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
         }
 
         override fun areContentsTheSame(oldItem: CaracterModel, newItem: CaracterModel): Boolean {
-            return  oldItem.id == newItem.id && oldItem.title == newItem.title &&
+            return  oldItem.id == newItem.id && oldItem.name == newItem.name &&
                     oldItem.description == newItem.description &&
                     oldItem.thumbnailModel.patch == newItem.thumbnailModel.patch &&
                     oldItem.thumbnailModel.extension == newItem.thumbnailModel.extension
@@ -54,7 +54,7 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.CharacterViewHolde
 
         val character = characters[position]
             holder.binding.apply {
-                tvNameCharacter.text = character.title
+                tvNameCharacter.text = character.name
                 if (character.description == "") {
                     tvNameCharacter.text =
                     holder.itemView.context.getString(R.string.text_description_empty)
