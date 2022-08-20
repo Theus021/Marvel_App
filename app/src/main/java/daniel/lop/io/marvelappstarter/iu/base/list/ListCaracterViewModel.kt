@@ -21,7 +21,8 @@ class ListCaracterViewModel @Inject constructor(
 
 ): ViewModel() {
 
-    private val _list = MutableStateFlow<ResourceState<CaracterModelResponse>>(ResourceState.Loading())
+    private val _list =
+        MutableStateFlow<ResourceState<CaracterModelResponse>>(ResourceState.Loading())
     val list: StateFlow<ResourceState<CaracterModelResponse>> = _list
 
     init {
