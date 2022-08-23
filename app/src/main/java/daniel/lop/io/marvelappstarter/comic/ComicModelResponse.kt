@@ -8,4 +8,4 @@ data class ComicModelResponse(
     @SerializedName("data")
     val data: ComicModelData
 
-): Serializable
+):Serializable
