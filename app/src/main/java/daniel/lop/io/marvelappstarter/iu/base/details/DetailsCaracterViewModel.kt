@@ -11,17 +11,19 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
 class DetailsCaracterViewModel @Inject constructor(
     private val repository: MarvelRepository
-): ViewModel() {
+) : ViewModel() {
 
-    private val _details = MutableStateFlow<ResourceState<ComicModelResponse>>(ResourceState.Loading())
-    val details : StateFlow<ResourceState<ComicModelResponse>> = _details
+    private val _details =
+        MutableStateFlow<ResourceState<ComicModelResponse>>(ResourceState.Loading())
+    val details: StateFlow<ResourceState<ComicModelResponse>> = _details
 
-    fun fetch(characterId: Int) = viewModelScope.launch{
+    fun fetch(characterId: Int) = viewModelScope.launch {
         safeFetch(characterId)
     }
 
@@ -29,13 +31,24 @@ class DetailsCaracterViewModel @Inject constructor(
         _details.value = ResourceState.Loading()
         try {
             val response = repository.getComics(characterId)
-            _details.value = handleResponse()
+            _details.value = handleResponse(response)
+        } catch (t: Throwable){
+            when(t){
+                is IOException -> _details.value =
+                    ResourceState.Error("Erro na conexão de internet")
+                else -> _details.value = ResourceState.Error("Erro na conversão de dados")
+            }
         }
     }
 
+    private fun handleResponse(response: Response<ComicModelResponse>): ResourceState<ComicModelResponse> {
+        if (response.isSuccessful) {
+            response.body()?.let { value ->
+                return ResourceState.Success(value)
+            }
+        }
+        return ResourceState.Error(response.message())
+
     }
-
-
-}
 
 }
