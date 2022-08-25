@@ -5,7 +5,6 @@ import daniel.lop.io.marvelappstarter.character.ThumbnailModel
 import java.io.Serializable
 
 data class CaracterModel(
-
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
@@ -14,4 +13,4 @@ data class CaracterModel(
     val description: String,
     @SerializedName("thumbnail")
     val thumbnailModel: ThumbnailModel
-): Serializable
+) : Serializable
