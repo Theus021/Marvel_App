@@ -30,6 +30,11 @@ class DetailsCaracterFragment: BaseFragment<FragmentDetailsCharacterBinding, Det
     private val comicAdapter by lazy { ComicAdapter() }
     private lateinit var caracterModel: CaracterModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         caracterModel = args.character
