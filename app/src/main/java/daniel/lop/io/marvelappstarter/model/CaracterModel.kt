@@ -1,10 +1,15 @@
 package daniel.lop.io.marvelappstarter.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import daniel.lop.io.marvelappstarter.character.ThumbnailModel
 import java.io.Serializable
 
+@Entity(tableName = "CaracterModel")
 data class CaracterModel(
+
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
