@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import daniel.lop.io.marvelappstarter.comic.ComicModelResponse
+import daniel.lop.io.marvelappstarter.model.CaracterModel
 import daniel.lop.io.marvelappstarter.model.CaracterModelResponse
 import daniel.lop.io.marvelappstarter.repository.MarvelRepository
 import daniel.lop.io.marvelappstarter.state.ResourceState
@@ -51,4 +52,7 @@ class DetailsCaracterViewModel @Inject constructor(
 
     }
 
+    fun insert(caracterModel: CaracterModel) = viewModelScope.launch {
+        repository.insert(caracterModel)
+    }
 }
