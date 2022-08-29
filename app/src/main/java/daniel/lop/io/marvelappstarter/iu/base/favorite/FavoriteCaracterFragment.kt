@@ -26,11 +26,74 @@ import kotlinx.coroutines.launch
 class FavoriteCaracterFragment: BaseFragment<FragmentFavoriteCharacterBinding, FavoriteCaracterViewModel>() {
 
     override val viewModel: FavoriteCaracterViewModel by viewModels()
+    private val caracterAdapter by lazy {CharacterAdapter()}
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecycleView()
+        clickAdapter()
+        observer()
+    }
+
+    private fun observer() = lifecycleScope.launch {
+        viewModel.favorite.collect { resource ->
+
+            when (resource) {
+                is ResourceState.Success -> {
+                    resource.data?.let {
+                        binding.tvEmptyList.hide()
+                        caracterAdapter.characters = it.toList()
+                    }
+                }
+                is ResourceState.Empty -> {
+                    binding.tvEmptyList.show()
+
+                }
+                else -> {}
+            }
+        }
+    }
+
+    private fun clickAdapter() {
+        caracterAdapter.setOnClickListener { caracterModel ->
+            val action = FavoriteCaracterFragmentDirections
+                .actionFavoriteCaracterFragmentToDetailsCaracterFragment(caracterModel)
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun setupRecycleView() = with(binding){
+        rvFavoriteCharacter.apply {
+            adapter = caracterAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
+        ItemTouchHelper(itemTochHelperCallBack()).attachToRecyclerView(rvFavoriteCharacter)
+    }
+
+    private fun itemTochHelperCallBack(): ItemTouchHelper.Callback{
+        return object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val character = caracterAdapter.getCharacterPosition(viewHolder.adapterPosition)
+                viewModel.delete(character).also {
+                    toast(getString(R.string.message_delete_character))
+                }
+            }
+
+        }
+    }
+
     override fun getViewBinding(
         layoutInflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentFavoriteCharacterBinding? {
-        TODO("Not yet implemented")
-    }
-
+    ):  FragmentFavoriteCharacterBinding =
+        FragmentFavoriteCharacterBinding.inflate(layoutInflater, container, false)
 }
