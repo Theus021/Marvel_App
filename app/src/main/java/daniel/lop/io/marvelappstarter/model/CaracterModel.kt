@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import daniel.lop.io.marvelappstarter.character.ThumbnailModel
 import java.io.Serializable
 
-@Entity(tableName = "CaracterModel")
+@Entity(tableName = "caracterModel")
 data class CaracterModel(
 
     @PrimaryKey(autoGenerate = true)

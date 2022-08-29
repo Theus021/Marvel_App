@@ -8,7 +8,7 @@ import daniel.lop.io.marvelappstarter.model.CaracterModel
 
 @Database(entities = [CaracterModel::class], version = 1, exportSchema = false)
 
-@TypeConverters(MarvelDataBase::class)
+@TypeConverters(MarvelConverters::class)
 abstract class MarvelDataBase: RoomDatabase() {
     abstract fun marvelDao(): MarvelDao
 }
